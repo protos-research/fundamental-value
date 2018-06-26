@@ -29,9 +29,11 @@ param = [strategy, nr_tickers]
 """
 if(fundamental == "nvv"): 
     vol, prices, mcap = npe.loadData('nvv')
+    vol_roll = vol.rolling(90).mean()
 if(fundamental == "nvt"): 
     vol, prices, mcap = npe.loadData('nvt')
-nvx = mcap/vol
+    vol_roll = vol.rolling(90).mean()
+nvx = mcap/vol_roll
 
 
 """
