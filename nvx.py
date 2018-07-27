@@ -26,20 +26,6 @@ risk_mgmt_param = ["equal-weight"]
 
 rebalancing_period = 7
 
-"""
-################################ TEST ############################
-signals = pe.get_signals(strategies,[i.iloc[:530] for i in ohlc],nvx.iloc[:530],signal_parameters)
-target_alloc = pe.risk_management(portfolio,signals,[i.iloc[:530] for i in ohlc],risk_mgmt_param)
-portfolio, delta = pe.execute_target_allocation(portfolio,target_alloc,[i.iloc[:530] for i in ohlc],spread)
-#portfolio = pe.update_balance(portfolio,[i.iloc[:531] for i in ohlc])
-
-print(target_alloc)
-print("-------------------")
-print(portfolio.positions)
-print("-------------------")
-print(delta)
-"""
-
 
 
 track_balance = []
