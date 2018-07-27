@@ -64,6 +64,13 @@ balance = pd.DataFrame(track_balance, index=dates)
 balance.plot()
 returns = balance.pct_change()
 
+# Max Drawdown:
+drawdown = 0.
+max_seen = portfolio.balance[0]
+for i in portfolio.balance:
+    max_seen = max(max_seen,i)
+    drawdown = max(drawdown,(1-i/max_seen)*100)
+
 print("Balance: " + str(portfolio.balance[-1]))
 print("--------------------------------------")
 print(portfolio.positions)
@@ -71,5 +78,5 @@ print("--------------------------------------")
 print("Sharpe: " + str((returns.mean()/(returns.std())*np.sqrt(365)).values))
 print("--------------------------------------")
 print("Gain-to-Pain : " + str((returns.sum()/abs(returns[returns < 0].sum())).values))
-
-
+print("--------------------------------------")    
+print("Max. Drawdown : [-" + f'{drawdown:.2f}' + "%]")
