@@ -45,7 +45,7 @@ print(delta)
 track_balance = []
 dates = []
 
-for day in range(1,530):#ohlc[0].shape[0]):
+for day in range(1,ohlc[0].shape[0]):
     
     # Update Balance
     if(day > 1):
